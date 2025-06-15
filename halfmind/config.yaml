@@ -1,0 +1,28 @@
+# https://developers.home-assistant.io/docs/add-ons/configuration#add-on-config
+name: Halfmind
+version: "1.0.0"
+slug: halfmind
+description: Add-on for Halfmind devices and services - Build your ADHD-friendly home with seamless tech integration
+url: "https://github.com/ChangeClock/Halfmind-Addon/"
+arch:
+  - armhf
+  - armv7
+  - aarch64
+  - amd64
+  - i386
+init: false
+map:
+  - share:rw
+options:
+  email: ""
+  password: ""
+schema:
+  email: "str"
+  password: "str"
+panel_icon: mdi:format-list-checks
+ports:
+  10242/tcp: 10242
+ingress: true
+ingress_port: 10242
+ingress_root: "/halfmind"
+# image: "ghcr.io/home-assistant/{arch}-base:3.15"
