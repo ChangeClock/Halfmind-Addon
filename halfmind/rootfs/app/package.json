@@ -2,6 +2,7 @@
     "name": "halfmind-app",
     "version": "1.0.0",
     "description": "Halfmind Web Application",
+    "type": "module",
     "main": "dist/server.js",
     "scripts": {
         "build": "tsc",

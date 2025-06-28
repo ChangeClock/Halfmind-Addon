@@ -1,3 +1,5 @@
+import { BACKEND_URL, TOKEN_KEY } from './constants.js';
+
 interface LoginResponse {
     code: number;
     msg: string;
@@ -8,17 +10,15 @@ interface LoginResponse {
     fail: boolean;
 }
 
-const BACKEND_URL = 'http://120.77.1.151:8080';
-const TOKEN_KEY = 'halfmind_token';
-
 document.addEventListener('DOMContentLoaded', () => {
     const loginForm = document.getElementById('loginForm') as HTMLFormElement;
 
     // Check if user is already logged in
     const storedToken = localStorage.getItem(TOKEN_KEY);
     if (storedToken) {
-        console.log('Found stored token, user is already logged in');
-        // TODO: Add logic to redirect to main page or show main content
+        console.log('Found stored token, redirecting to todo list');
+        window.location.href = '/todo.html';
+        return;
     }
 
     loginForm.addEventListener('submit', async (e) => {
@@ -65,8 +65,8 @@ document.addEventListener('DOMContentLoaded', () => {
             localStorage.setItem(TOKEN_KEY, token);
             console.log('Token stored successfully');
 
-            // TODO: Add logic to redirect to main page or show main content
-            alert('Login successful!');
+            // Redirect to todo list page
+            window.location.href = '/todo.html';
         } catch (error) {
             alert('Login failed. Please try again.');
             console.error('Login error:', error);
